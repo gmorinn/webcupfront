@@ -1,0 +1,22 @@
+textarea::-webkit-scrollbar {
+    width: 0.3em;
+}
+
+textarea::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgb(37, 99, 235);
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: rgb(37, 99, 235);
+    outline: 1px solid rgb(37, 99, 235);
+}
+
+input[type="search"]::-webkit-search-decoration:hover,
+input[type="search"]::-webkit-search-cancel-button:hover { 
+    cursor:pointer;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
