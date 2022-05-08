@@ -1,5 +1,5 @@
 import { FC, lazy } from "react";
-import './App.scss'
+import './App.css'
 import { Navigate, Route, Routes } from "react-router-dom";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
