@@ -18,6 +18,7 @@ const ForgotPassword = lazy(() => import("./screens/forgotPassword"))
 
 toast.configure();
 
+
 const App: FC = () => {
   return (
         <Routes>
