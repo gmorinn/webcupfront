@@ -9,13 +9,25 @@ import { useAuth } from "../hooks/useAuth";
 import { useApi } from "../hooks/useApi";
 import MinLoader from "../components/MinLoader";
 import { useNavigate } from "react-router-dom";
+import { Data } from "../utils/types";
+import CardData from "../components/Dashboard/atoms/CardData";
+import Capsule from "../assets/capsule.png";
+import Pagination from "../components/Dashboard/atoms/Paginations";
 
 const Settings: FC = () => {
     const setCurrentUser = useSetRecoilState(currentUserAtom)
     const { user, logout } = useAuth()
     const { Fetch } = useApi()
     const [loading, setLoading] = useState<boolean>(false)
+    const [data, setData] = useState<Data[] | null>(null)
     const navigate = useNavigate()
+
+    //// PAGINATION ////
+    const [total, setTotal] = useState<number>(0);
+    const [page, setPage] = useState<number>(0);
+    // eslint-disable-next-line
+    const [rowsPerPage, setRowsPerPage] = useState<number>(3);
+    /////////////////////
 
     const removeAccount = () => {
       setLoading(true)
@@ -38,6 +50,21 @@ const Settings: FC = () => {
           })
         } else setLoading(false)
     }
+    const getDataByUserId = async () => {
+        await Fetch(`/web/data/user/${user.id}/${page*rowsPerPage}/${rowsPerPage}`).then((res) => {
+            if (res?.success === true && res?.data?.length > 0) {
+                setData(res.data)
+                setTotal(res.count)
+            } else {
+                alert("Une erreur est survenue.")
+            }
+        })
+    }
+
+    useEffect(() => {
+      getDataByUserId()
+      // eslint-disable-next-line
+  }, [rowsPerPage, page])
   
     useEffect(() => {
       setLoading(true)
@@ -45,6 +72,7 @@ const Settings: FC = () => {
         Fetch(`/v1/web/user/${user.id}`).then(res => {
           if (res?.success && res?.user) {
             setCurrentUser(res.user)
+            getDataByUserId()
           } else {
             setCurrentUser(null)
             logout()
@@ -67,6 +95,14 @@ const Settings: FC = () => {
                         <>
                           <Title title="Paramètres" icon={Setting}/>
                           <NameSettings />
+                          <Title title="Vos données" />
+                          {
+                            data && data?.length > 0 ? data.map((res, index) => {
+                                  return <CardData res={res} picture={res.image && res.image !== "" ? process.env.REACT_APP_API_URL + res.image : Capsule} key={index} />
+                            }) :
+                            <p className="text-center text-white">Vous n'avez pas encore ajouté de données.</p>
+                          }
+                          <Pagination currentPage={page} postsPerPage={rowsPerPage} totalPages={total} handleNext={() => setPage(page+1)} handlePrevious={() => setPage(page-1)} />
                           <ButtonAccount
                             redirectToChangePassword={() => navigate('/check-email')}
                             removeAccount={removeAccount}

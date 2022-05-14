@@ -11,6 +11,7 @@ const Forfaits = lazy(() => import("./screens/forfaits"))
 const Contact = lazy(() => import("./screens/contact"))
 const Dashboard = lazy(() => import("./screens/dashboard"))
 const Profile = lazy(() => import("./screens/profile"))
+const DataPage = lazy(() => import("./screens/data"))
 const Settings = lazy(() => import("./screens/settings"))
 const NotFound = lazy(() => import("./screens/notFound"))
 const Sign = lazy(() => import("./screens/sign"))
@@ -28,6 +29,7 @@ const App: FC = () => {
           <Route path="profile/:username" element={<Profile />} />
           <Route path="check-email" element={<CheckEmail />} />
           <Route path="forgot-password" element={<ForgotPassword />} />
+          <Route path="data/:id" element={<DataPage />} />
 
           {/* ONLY PUBLIC ROUTE */}
           <Route path="sign" element={<PublicRouteOnly component={Sign} />} />

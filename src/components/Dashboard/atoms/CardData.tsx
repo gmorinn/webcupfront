@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { useNavigate } from "react-router-dom";
+import { EmptyString } from "../../../utils/checkValue";
 import { Data } from "../../../utils/types";
 
 type Props = {
@@ -9,6 +11,7 @@ type Props = {
 }
 
 const CardData: FC<Props> = ({ res, picture, dataTest }) => {
+    const navigate = useNavigate()
     return (
         <figure className="bg-transparent border-2 border-blue-700 rounded-xl my-5 p-5 w-2/3 mx-auto bock" key={res.id} data-testid={dataTest || ""}>
             <div className="flex justify-around items-center bock">
@@ -22,11 +25,11 @@ const CardData: FC<Props> = ({ res, picture, dataTest }) => {
                             {res.description}
                         </div>
                         <div className="my-1 text-white">
-                            Type: {res.category === "animals" ? "Animal" : res.category === "brain" ? "Cerveau" : res.category === "robotics" ? "Robotique" : "Espace"}
+                            Type: {res.category === "animals" ? "Animal" : res.category === "brain" ? "Cerveau" : res.category === "robotics" ? "Robotique" : res.category === "space" ? "Espace" : "Autre"}
                         </div>
-                        {/* <div className="my-1 text-neutral-400 hover:text-neutral-200 cursor-pointer" onClick={redirection}>
-                            Voir profil
-                        </div> */}
+                        <div className="my-1 text-neutral-400 hover:text-neutral-200 cursor-pointer" onClick={() => navigate("/data/"+EmptyString(res.id))}>
+                            Voir plus
+                        </div>
                     </figcaption>
                 </div>
             </div>

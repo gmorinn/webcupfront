@@ -1,13 +1,12 @@
 import { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from '../assets/brain.png'
+import Logo from '../assets/alien.png'
 import { useAuth } from "../hooks/useAuth";
 
 const Navbar: FC = () => {
     const navigate = useNavigate()
     const [isClose, setIsClose] = useState<boolean>(false)
     const { logout } = useAuth()
-    
 
     return (
         <nav className="bg-gradient-to-r from-zinc-900 via-slate-900 to-zinc-900">

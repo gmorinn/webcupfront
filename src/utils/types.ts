@@ -4,7 +4,7 @@ export type Role = 'user' | 'admin' | 'pro'
 
 export type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
 
-export type Category = 'robotics' | 'space' | 'brain' | 'animals'
+export type Category = 'robotics' | 'space' | 'brain' | 'animals' | 'autre'
 
 export type ForfaitType = {
     emplacement: "terre" | "lune" | "univers"

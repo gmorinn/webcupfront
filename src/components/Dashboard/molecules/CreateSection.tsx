@@ -104,6 +104,7 @@ const CreateSection: FC<Props> = ({ refresh }) => {
                                 <option value="space">Espace</option>
                                 <option value="brain">Cerveau</option>
                                 <option value="animals">Animal</option>
+                                <option value="autre">Autre</option>
                             </select>
                     </div>
                 </div>
