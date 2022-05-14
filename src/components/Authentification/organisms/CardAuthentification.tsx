@@ -22,7 +22,7 @@ const Card: FC = () => {
             <div className="text-white mt-64 flex flex-col items-center justify-content-center">
                 <img style={{animation: `spin ${3}s linear infinite`}} src={Clock} className="h-32 mr-4 mb-16" alt="img"/>
                 <Title>WEBTIME</Title>
-                <Slogan>Il y a 100 milliards d'années...</Slogan>
+                <Slogan>Il y a 5 000 ans...</Slogan>
                 <Button
                     disable={false}
                     action={() => navigate('/home')}

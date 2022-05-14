@@ -4,6 +4,8 @@ export type Role = 'user' | 'admin' | 'pro'
 
 export type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
 
+export type Category = 'robotics' | 'space' | 'brain' | 'animals'
+
 export type Header = {
     Authorization?: string,
     jwtToken?: string,
@@ -17,6 +19,15 @@ export type User = {
     username: string,
     email: string,
     avatar: string,
+}
+
+export type Data = {
+    id : UUID,
+    title: string,
+    description: string,
+    image: string,
+    user_id: string,
+    category: Category,
 }
 
 export type SmallUser = {

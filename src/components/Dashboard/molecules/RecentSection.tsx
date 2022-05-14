@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApi } from "../../../hooks/useApi";
-import { SmallUser } from "../../../utils/types";
+import { Data } from "../../../utils/types";
 import MinLoader from "../../MinLoader";
-import CardUser from "../atoms/CardUser";
+import CardData from "../atoms/CardData";
 import TitleDashboard from "../atoms/TitleDashboard";
 import Time from '../../../assets/icons/time.svg'
 import Pagination from "../atoms/Paginations";
@@ -13,7 +13,7 @@ type Props = {
 }
 
 const RecentSection: FC<Props> = ({ img }) => {
-    const [users, setUsers] = useState<SmallUser[] | null>(null)
+    const [data, setdata] = useState<Data[] | null>(null)
 
     //// PAGINATION ////
     const [total, setTotal] = useState<number>(0);
@@ -26,10 +26,10 @@ const RecentSection: FC<Props> = ({ img }) => {
     const { Fetch, loading } = useApi()
 
     useEffect(() => {
-        Fetch(`/v1/web/public/user/recents/${page*rowsPerPage}/${rowsPerPage}`, "GET")
+        Fetch(`/web/data/recents/${page*rowsPerPage}/${rowsPerPage}`, "GET")
         .then((res:any) => {
-            if (res?.success && res?.users && res?.count >= 0) {
-                setUsers(res.users)
+            if (res?.success && res?.data && res?.count >= 0) {
+                setdata(res.data)
                 setTotal(res.count)
 
             }
@@ -45,14 +45,13 @@ const RecentSection: FC<Props> = ({ img }) => {
                     <MinLoader />
                         :
                         <>
-                            {users && users.length > 0 && users.map((v, i) => {
+                            {data && data.length > 0 && data.map((v, i) => {
                                 return (
-                                    <CardUser
+                                    <CardData
                                         key={v.id}
                                         dataTest={`recent-user-${i}`}
-                                        user={v}
-                                        picture={v.avatar ? process.env.REACT_APP_API_URL + v.avatar : img}
-                                        redirection={() => navigate(`/profile/${v.username}`)}
+                                        res={v}
+                                        picture={v.image ? process.env.REACT_APP_API_URL + v.image : img}
                                     />
                                 )
                             })}

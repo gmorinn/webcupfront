@@ -1,8 +1,8 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CardUser from "../atoms/CardUser";
-import InputSearchUser from "../atoms/InputSearchUser";
-import { SmallUser } from "../../../utils/types";
+import CardData from "../atoms/CardData";
+import InputSearchData from "../atoms/InputSearchData";
+import { Data } from "../../../utils/types";
 import { useApi } from "../../../hooks/useApi";
 import TitleDashboard from "../atoms/TitleDashboard";
 import Search from '../../../assets/icons/search.svg'
@@ -13,40 +13,39 @@ type Props = {
 
 const SearchSection: FC<Props> = ({ img }) => {
     const [value, setValue] = useState<string>("")
-    const [users, setUsers] = useState<SmallUser[] | null>(null)
+    const [data, setdata] = useState<Data[] | null>(null)
     const navigate = useNavigate()
 
     const { Fetch, loading } = useApi()
 
     useEffect(() => {
         if (value.length > 2 && !loading) {
-            Fetch(`/v1/web/public/user/search`, "PATCH", {key: value})
+            Fetch(`/v1/web/data/search`, "PATCH", {key: value})
                 .then((res:any) => {
-                    if (res?.success && res?.users) {
-                        setUsers(res.users)
+                    if (res?.success && res?.data) {
+                        setdata(res.data)
                     }
                 })
-        } else if (value.length < 1) setUsers(null)
+        } else if (value.length < 1) setdata(null)
         // eslint-disable-next-line
     }, [value])
 
 
     return (
         <div id="Research">
-            <TitleDashboard logo={Search}>Recherchez un profil</TitleDashboard>
-            <InputSearchUser 
+            <TitleDashboard logo={Search}>Recherchez un objet</TitleDashboard>
+            <InputSearchData
                 placeholder="Entrez un mot clé..."
                 value={value}
                 setValue={setValue}
             />
-            { users && users.length > 0 && users.map((v, i) => {
+            { data && data.length > 0 && data.map((v, i) => {
                 return (
-                    <CardUser
+                    <CardData
                         key={v.id}
-                        user={v}
-                        dataTest={`search-user-${i}`}
-                        picture={v.avatar ? process.env.REACT_APP_API_URL + v.avatar : img}
-                        redirection={() => navigate(`/profile/${v.username}`)}
+                        res={v}
+                        dataTest={`search-data-${i}`}
+                        picture={v.image ? process.env.REACT_APP_API_URL + v.image : img}
                     />
                 )
             })

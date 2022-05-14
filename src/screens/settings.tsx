@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import NameSettings from "../components/Settings/organisms/NameSettings";
 import ButtonAccount from "../components/Settings/organisms/ButtonAccount";
 import Title from "../components/Settings/atoms/Title";
-import IconSetting from '../assets/icons/settings.svg'
+import Setting from '../assets/settings.png'
 import { useSetRecoilState } from "recoil";
 import { currentUserAtom } from "../mode/user";
 import { useAuth } from "../hooks/useAuth";
@@ -65,7 +65,7 @@ const Settings: FC = () => {
                 {
                     !loading ? 
                         <>
-                          <Title title="Paramètres" icon={IconSetting}/>
+                          <Title title="Paramètres" icon={Setting}/>
                           <NameSettings />
                           <ButtonAccount
                             redirectToChangePassword={() => navigate('/check-email')}

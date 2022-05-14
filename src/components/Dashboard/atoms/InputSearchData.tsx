@@ -7,7 +7,7 @@ type Props = {
     label?: string
 }
 
-const InputSearchUser: FC<Props> = ({ value, setValue, placeholder, label }) => {
+const InputSearchData: FC<Props> = ({ value, setValue, placeholder, label }) => {
     return (
         <div className="flex justify-center">
             <div className="mb-3 xl:w-96">
@@ -42,4 +42,4 @@ const InputSearchUser: FC<Props> = ({ value, setValue, placeholder, label }) => 
     )
 }
 
-export default InputSearchUser
+export default InputSearchData
