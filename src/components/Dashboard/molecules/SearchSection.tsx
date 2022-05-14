@@ -1,11 +1,10 @@
 import { FC, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import CardData from "../atoms/CardData";
 import InputSearchData from "../atoms/InputSearchData";
 import { Data } from "../../../utils/types";
 import { useApi } from "../../../hooks/useApi";
 import TitleDashboard from "../atoms/TitleDashboard";
-import Search from '../../../assets/icons/search.svg'
+import Search from '../../../assets/vaisseaux.png'
 
 type Props = {
     img: string
@@ -14,13 +13,12 @@ type Props = {
 const SearchSection: FC<Props> = ({ img }) => {
     const [value, setValue] = useState<string>("")
     const [data, setdata] = useState<Data[] | null>(null)
-    const navigate = useNavigate()
 
     const { Fetch, loading } = useApi()
 
     useEffect(() => {
         if (value.length > 2 && !loading) {
-            Fetch(`/v1/web/data/search`, "PATCH", {key: value})
+            Fetch(`/web/data/search`, "PATCH", {key: value})
                 .then((res:any) => {
                     if (res?.success && res?.data) {
                         setdata(res.data)

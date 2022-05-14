@@ -1,18 +1,18 @@
 import { FC, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useApi } from "../../../hooks/useApi";
 import { Data } from "../../../utils/types";
 import MinLoader from "../../MinLoader";
 import CardData from "../atoms/CardData";
 import TitleDashboard from "../atoms/TitleDashboard";
-import Time from '../../../assets/icons/time.svg'
+import Clock from '../../../assets/clock.png'
 import Pagination from "../atoms/Paginations";
 
 type Props = {
-    img: string
+    img: string,
+    refresh: boolean
 }
 
-const RecentSection: FC<Props> = ({ img }) => {
+const RecentSection: FC<Props> = ({ img, refresh }) => {
     const [data, setdata] = useState<Data[] | null>(null)
 
     //// PAGINATION ////
@@ -20,10 +20,13 @@ const RecentSection: FC<Props> = ({ img }) => {
     const [page, setPage] = useState<number>(0);
     // eslint-disable-next-line
     const [rowsPerPage, setRowsPerPage] = useState<number>(5);
-    const navigate = useNavigate()
     /////////////////////
 
     const { Fetch, loading } = useApi()
+
+    useEffect(() => {
+        console.log(refresh)
+    }, [refresh])
 
     useEffect(() => {
         Fetch(`/web/data/recents/${page*rowsPerPage}/${rowsPerPage}`, "GET")
@@ -35,11 +38,11 @@ const RecentSection: FC<Props> = ({ img }) => {
             }
         })
         // eslint-disable-next-line
-    }, [rowsPerPage, page])
+    }, [rowsPerPage, page, refresh])
 
     return (
         <div id="Recently">
-            <TitleDashboard logo={Time}>Les profils les plus récents</TitleDashboard>
+            <TitleDashboard logo={Clock}>Les objets les plus récents</TitleDashboard>
             {
                 loading ?
                     <MinLoader />
