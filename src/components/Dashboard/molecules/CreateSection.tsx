@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import TitleDashboard from "../atoms/TitleDashboard";
 import Alien from '../../../assets/alien.png'
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -11,6 +11,7 @@ import Err from "../../../utils/humanResp";
 import GroupInputData from "../atoms/GroupInputData";
 import { useAuth } from "../../../hooks/useAuth";
 import ButtonInput from "../atoms/ButtonForm";
+import InputFileBrowser from "../../../utils/InputFileAvatar";
 
 type FormValues = {
     title: string,
@@ -25,6 +26,7 @@ type Props = {
 const CreateSection: FC<Props> = ({ refresh }) => {
     const [error, setError] = useState<string | null>(null)
     const [image, setImage] = useState<string>("")
+    const inputEl = useRef<HTMLInputElement>(null);
     const [category, setCategory] = useState<Category>("robotics")
     const { Fetch, loading } = useApi()
     const { getUser } = useAuth()
@@ -50,7 +52,7 @@ const CreateSection: FC<Props> = ({ refresh }) => {
                 description: data.description,
                 category: category,
                 user_id: getUser().id,
-                image: "",
+                image: image,
             }
         })
             .then((res:any) => {
@@ -103,7 +105,19 @@ const CreateSection: FC<Props> = ({ refresh }) => {
                                 <option value="brain">Cerveau</option>
                                 <option value="animals">Animal</option>
                             </select>
-                        </div>
+                    </div>
+                </div>
+                <div className="grid grid-cols-1 md:gap-5">
+                    <label htmlFor={"image"} className="text-white w-full text-md">Importer votre image:</label>
+                    {image !== "" && <img src={process.env.REACT_APP_API_URL + image} alt="test" className="h-64" />}
+                    <InputFileBrowser
+                        id="image"
+                        value={image}
+                        limit={314572}
+                        className=""
+                        ref={inputEl}
+                        set={setImage}
+                    />
                 </div>
                 <div className="w-full h-8">
                     {error && <span className="block text-white text-sm mb-1">{error}</span>}

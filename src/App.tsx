@@ -7,6 +7,7 @@ import { useAuth } from "./hooks/useAuth";
 import Navbar from "./components/Navbar";
 
 const HomePage = lazy(() => import("./screens/homepage"))
+const Forfaits = lazy(() => import("./screens/forfaits"))
 const Contact = lazy(() => import("./screens/contact"))
 const Dashboard = lazy(() => import("./screens/dashboard"))
 const Profile = lazy(() => import("./screens/profile"))
@@ -35,6 +36,7 @@ const App: FC = () => {
           <Route path="settings" element={<PrivateRoute component={Settings} />} />
           <Route path="home" element={<PrivateRoute component={Dashboard} />} />
           <Route path="contact" element={<PrivateRoute component={Contact} />} />
+          <Route path="forfaits" element={<PrivateRoute component={Forfaits} />} />
 
 
         </Routes>

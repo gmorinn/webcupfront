@@ -6,6 +6,11 @@ export type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
 
 export type Category = 'robotics' | 'space' | 'brain' | 'animals'
 
+export type ForfaitType = {
+    emplacement: "terre" | "lune" | "univers"
+    duration: "1 mois" | "6 mois" | "12 mois"
+}
+
 export type Header = {
     Authorization?: string,
     jwtToken?: string,

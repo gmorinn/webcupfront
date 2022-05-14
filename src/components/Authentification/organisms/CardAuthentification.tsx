@@ -11,15 +11,14 @@ const Card: FC = () => {
     const navigate = useNavigate()
 
     return (
-        <div className="w-full relative">
+        <div className="w-full">
             <div className="fixed left-0 top-0">
                 <img src={SpaceInvader} className="h-24 m-5 md:m-12 md:h-36 lg:h-64 mb-16" alt="img"/>
             </div>
             <div className="absolute bottom-0 right-0 ">
                 <img src={Fire} className="h-24 md:h-36 lg:h-64 mr-4 mb-16" alt="img"/>
             </div>
-
-            <div className="text-white mt-64 flex flex-col items-center justify-content-center">
+            <div className="fixed w-full text-white mt-64 flex flex-col items-center justify-content-center">
                 <img style={{animation: `spin ${3}s linear infinite`}} src={Clock} className="h-32 mr-4 mb-16" alt="img"/>
                 <Title>WEBTIME</Title>
                 <Slogan>Il y a 5 000 ans...</Slogan>
