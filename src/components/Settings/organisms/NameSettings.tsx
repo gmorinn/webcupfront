@@ -47,7 +47,7 @@ const NameSettings: FC = () => {
     });
 
     const onSubmit:SubmitHandler<FormValues> = data => {
-        Fetch('/v1/web/user/edit/description', "PUT", {...data})
+        Fetch('/v1/web/user/edit', "PUT", {...data})
             .then((res:any) => {
                 if (res?.success && res?.user) {
                     setCurrentUser(res.user)

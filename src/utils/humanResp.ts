@@ -41,6 +41,8 @@ const Err = (res: ErrorAPI):string => {
 			// eslint-disable-next-line
 			case res.message.includes(`must match the regexp \"\\\\d\"`):
 				return "Le mot de passe doit contenir au moins un chiffre."
+			case res.message.includes(`length of body.img must be greater or equal than`):
+				return "Veuillez insérer une image."
 			case res.message.includes(`Wrong format`):
 				return "Ce format n'est pas accepté."
 			default:

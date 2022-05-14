@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { displayError } from "../utils/toastMessage";
 import { EmptyString, NullString } from "../utils/checkValue";
 import MinLoader from "../components/MinLoader";
-import Logo from '../assets/logo.png'
+import Logo from '../assets/brain.png'
 
 const Profile: FC = () => {
     const [user, setUser] = useState<User | null>(null)
@@ -34,7 +34,7 @@ const Profile: FC = () => {
     return (
         <div className="min-h-screen w-full bg-gradient-to-r from-zinc-900 via-slate-900 to-zinc-900">
              <div className="p-5 flex items-center">
-                <img className="lg:block h-6 w-auto cursor-pointer" src={Logo} alt="Logo" onClick={() => navigate('/')} />
+                <img className="lg:block h-16 w-auto cursor-pointer" src={Logo} alt="Logo" onClick={() => navigate('/')} />
             </div>
             <div className="p-5 xs:w-full sm:w-1/2 md:w-1/2 xl:w-2/5 mx-auto">
                 {

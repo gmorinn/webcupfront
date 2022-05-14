@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Logo from '../assets/logo.png'
+import Logo from '../assets/brain.png'
 import { useAuth } from "../hooks/useAuth";
 
 const Navbar: FC = () => {
@@ -29,7 +29,7 @@ const Navbar: FC = () => {
                 </div>
                 <div className="flex-1 flex items-center justify-between sm:items-stretch">
                     <div className="flex-shrink-0 flex items-center">
-                        <img className="lg:block h-8 w-auto cursor-pointer" src={Logo} alt="Logo" onClick={() => navigate('/home')} />
+                        <img className="lg:block h-16 w-auto cursor-pointer" src={Logo} alt="Logo" onClick={() => navigate('/home')} />
                     </div>
                     <div className="hidden sm:block sm:ml-6">
                     <div className="flex space-x-4">
