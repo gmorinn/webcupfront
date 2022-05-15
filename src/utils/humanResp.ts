@@ -16,6 +16,8 @@ const Err = (res: ErrorAPI):string => {
 				return "Erreur sur le nom de famille."
 			case res.err.includes("check constraint \"usernamechk\""):
 				return "Erreur sur le nom d'utilisateur."
+			case res.err.includes("ERROR_CREATE_DATA_MAX_DATA"):
+				return "Achetez du stockage pour pouvoir continuer à ajouter."
 			default:
 				break;
 		}

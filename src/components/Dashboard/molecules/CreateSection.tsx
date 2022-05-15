@@ -121,7 +121,7 @@ const CreateSection: FC<Props> = ({ refresh }) => {
                     />
                 </div>
                 <div className="w-full h-8">
-                    {error && <span className="block text-white text-sm mb-1">{error}</span>}
+                    {error && <span className="block text-red-500 text-sm my-3">{error}</span>}
                     <ButtonInput loading={loading}>Valider</ButtonInput>
                 </div>
             </form>

@@ -7,10 +7,12 @@ type Props = {
     memory: string,
     forfait: ForfaitType,
     price: number,
-    img: string
+    img: string,
+    handleNFT: any
+    disable: boolean
 }
 
-const CardNft: FC<Props> = ({ memory, forfait, price, img }) => {
+const CardNft: FC<Props> = ({ memory, forfait, price, img, handleNFT, disable }) => {
 
     return (
         <div className="flex justify-center items-start flex-col my-4">
@@ -36,6 +38,8 @@ const CardNft: FC<Props> = ({ memory, forfait, price, img }) => {
                 {price}€
             </h3>
             <Button
+                action={() => handleNFT()}
+                disable={disable}
                 styles="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-xs md:text-lg px-2 py-2 text-center mb-4 mx-auto"
             >
                 Obtenir ce NFT maintenant

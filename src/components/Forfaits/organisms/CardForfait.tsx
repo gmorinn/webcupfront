@@ -5,14 +5,16 @@ import Button from "../../Button";
 
 type Props = {
     forfait: ForfaitType,
-    is_populaire?: boolean
+    is_populaire?: boolean,
+    handleMensuel: any
+    disable: boolean
 }
 
-const CardForfait: FC<Props> = ({ forfait, is_populaire }) => {
+const CardForfait: FC<Props> = ({ forfait, is_populaire, handleMensuel, disable }) => {
     return (
         <div className="relative flex flex-col flex-wrap items-center p-8 bg-opacity-75 border border-blue-700">
             {is_populaire && <span className="absolute px-3 py-1 text-xs font-medium text-white bg-opacity-25 rounded-full bg-gradient-to-r from-blue-700 to-red-400 -top-3">Plus populaire</span>}
-            <p className="pb-5 text-white font-medium text-xl italic text-center w-1/2 my-2">Sauvegardez vos données pour <span className="text-blue-700 text-2xl">seulement...</span></p>
+            <p className="pb-5 text-white font-medium text-xl italic text-center w-1/2 my-2">Sauvegardez une donnée par mois pour <span className="text-blue-700 text-2xl">seulement...</span></p>
             <h3 className="text-3xl font-medium text-white mb-5">9.99€
                 <small className="pl-0 text-base align-baseline opacity-80">/mois</small>
             </h3>
@@ -39,6 +41,8 @@ const CardForfait: FC<Props> = ({ forfait, is_populaire }) => {
             </ul>
             <span className="flex items-center justify-center w-full py-3 mt-5 space-x-2 text-center btn-secondary umami--click--pricing-pro-action">
                 <Button
+                    disable={disable}
+                    action={() => handleMensuel()}
                     styles="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-3xl text-xs md:text-lg px-5 py-2.5 text-center mt-9 mb-2"
                 >
                     <span className="text-white font-medium">Je m'inscris</span>
