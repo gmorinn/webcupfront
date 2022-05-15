@@ -62,6 +62,15 @@ const FormContact: FC = () => {
                     <ButtonContact loading={loading} errors={errors} error={error} />
                 </form>
             </div>
+            <div className="text-white text-center mt-4">
+                <small>Vous voulez contribuez au développement de la plateforme? Voici nos codes sources:</small>
+                <br />
+                <small>Front-End: <span className="cursor-pointer text-blue-500" onClick={() => window.open("https://github.com/gmorinn/webcupfront")}>github.com/gmorinn/webcupfront</span></small>
+                <br />
+                <small>Back-End: <span className="cursor-pointer text-blue-500" onClick={() => window.open("https://github.com/gmorinn/webcup")}>github.com/gmorinn/webcup</span></small>
+                <br />
+                <small>Back-office: <span className="cursor-pointer text-blue-500" onClick={() => window.open("https://github.com/gmorinn/webcup_bo")}>github.com/gmorinn/webcup_bo</span></small>
+            </div>
         </div>
     )
 }
