@@ -53,8 +53,8 @@ const AvatarSettings: FC = () => {
             <button
                 type="button"
                 onClick={() => navigate(`/profile/${currentUser?.username}`)}
-                className="w-1/4 sm:w-1/2 md:w-1/4 mx-auto text-md text-blue-700 cursor-pointer
-                            border border-blue-700 p-1 text-center my-5
+                className="w-1/4 sm:w-1/2 md:w-1/4 mx-auto text-md text-rose-500 cursor-pointer
+                            border border-rose-500 p-1 text-center my-5
                             hover:text-white hover:border-white rounded-lg">
                 Voir le profil
             </button>

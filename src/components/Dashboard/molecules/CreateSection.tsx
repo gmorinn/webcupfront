@@ -99,7 +99,7 @@ const CreateSection: FC<Props> = ({ refresh }) => {
                             transition
                             ease-in-out
                             mb-10
-                            focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                            focus:text-gray-700 focus:bg-white focus:border-rose-600 focus:outline-none" aria-label="Default select example">
                                 <option value="robotics">Robotique</option>
                                 <option value="space">Espace</option>
                                 <option value="brain">Cerveau</option>

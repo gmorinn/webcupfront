@@ -25,7 +25,7 @@ const Card: FC = () => {
                 <Button
                     disable={false}
                     action={() => navigate('/home')}
-                    styles="bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-3xl text-xs md:text-lg px-5 py-2.5 text-center mt-9 mb-2"
+                    styles="bg-gradient-to-r from-cyan-500 to-rose-700 hover:bg-gradient-to-bl focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-3xl text-xs md:text-lg px-5 py-2.5 text-center mt-9 mb-2"
                 >
                 Remonter dans le temps
                 </Button>

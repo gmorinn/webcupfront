@@ -57,7 +57,7 @@ const SignUp: FC<Props> = ({ setMethod }) => {
                     <Button
                         type="submit"
                         disable={load}
-                        styles="w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 rounded-lg text-sm px-4 py-2 mt-3"
+                        styles="w-full text-white bg-gradient-to-r from-rose-700 via-rose-600 to-rose-500 hover:bg-gradient-to-br focus:ring-4 focus:ring-rose-300 rounded-lg text-sm px-4 py-2 mt-3"
                     >
                         Valider
                     </Button>

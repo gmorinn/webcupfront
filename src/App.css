@@ -3,12 +3,12 @@ textarea::-webkit-scrollbar {
 }
 
 textarea::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 2px rgb(37, 99, 235);
+    -webkit-box-shadow: inset 0 0 2px #ED156D;
 }
 
 textarea::-webkit-scrollbar-thumb {
-    background-color: rgb(37, 99, 235);
-    outline: 1px solid rgb(37, 99, 235);
+    background-color: #ED156D;
+    outline: 1px solid #ED156D;
 }
 
 input[type="search"]::-webkit-search-decoration:hover,

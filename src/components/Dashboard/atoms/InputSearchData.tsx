@@ -32,7 +32,7 @@ const InputSearchData: FC<Props> = ({ value, setValue, placeholder, label }) => 
                         transition
                         ease-in-out
                         m-0
-                        focus:text-blue-700 focus:border-blue-700 focus:outline-none
+                        focus:text-rose-500 focus:border-rose-500 focus:outline-none
                     "
                     id="search"
                     placeholder={placeholder}

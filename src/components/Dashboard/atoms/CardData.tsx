@@ -13,12 +13,12 @@ type Props = {
 const CardData: FC<Props> = ({ res, picture, dataTest }) => {
     const navigate = useNavigate()
     return (
-        <figure className="bg-transparent border-2 border-blue-700 rounded-xl my-5 p-5 w-2/3 mx-auto bock" key={res.id} data-testid={dataTest || ""}>
+        <figure className="bg-transparent border-2 border-rose-500 rounded-xl my-5 p-5 w-2/3 mx-auto bock" key={res.id} data-testid={dataTest || ""}>
             <div className="flex justify-around items-center bock">
                 <img className="object-contain w-20 h-20 rounded-full" src={picture} alt="Avatar" width="384" height="512" />
                 <div className="text-center space-y-4 flex items-center">
                     <figcaption className="font-medium bock">
-                        <div className="my-1 text-blue-600 text-lg break-all">
+                        <div className="my-1 text-rose-600 text-lg break-all">
                             {res.title}
                         </div>
                         <div className="my-1 text-white break-all">

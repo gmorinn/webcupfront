@@ -20,7 +20,7 @@ const Input: FC<Props> = ({ control, defaultValue, name, type, readonly, maxLeng
                     name={name}
                     defaultValue={defaultValue}
                     render={({ field }) => <input {...field} type={type}
-                    className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-blue-500 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-rose-700 appearance-none focus:outline-none focus:ring-0 focus:border-rose-600 peer"
                     id={name}
                     autoComplete="off"
                     readOnly={readonly !== undefined ? readonly : false}
@@ -34,7 +34,7 @@ const Input: FC<Props> = ({ control, defaultValue, name, type, readonly, maxLeng
                 name={name}
                 defaultValue={defaultValue}
                 render={({ field }) => <textarea {...field}
-                className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-blue-500 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                className="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b-2 border-rose-700 appearance-none focus:outline-none focus:ring-0 focus:border-rose-600 peer"
                 id={name}
                 autoComplete="off"
                 readOnly={readonly !== undefined ? readonly : false}

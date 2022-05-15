@@ -73,7 +73,7 @@ const Profile: FC = () => {
                             picture={NullString(user?.avatar)}
                             name={`${EmptyString(user?.firstname)} ${EmptyString(user?.lastname)}`}
                         />
-                        <h2 className="italic text-2xl text-white text-center text-blue-500 my-5">
+                        <h2 className="italic text-2xl text-white text-center text-rose-700 my-5">
                             Vos données
                         </h2>
                         {data && data.length > 0 && data.map((res: Data) => {

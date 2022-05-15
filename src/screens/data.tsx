@@ -73,7 +73,7 @@ const DataPage: FC = () => {
                         <h1 className="text-white text-2xl my-2 italic">
                             Détenteur de l'objet:
                         </h1>
-                        <p onClick={() => navigate("/profile/"+username)} className="text-blue-700 italic text-lg cursor-pointer">
+                        <p onClick={() => navigate("/profile/"+username)} className="text-rose-500 italic text-lg cursor-pointer">
                             {name}
                         </p>
                     </div>
