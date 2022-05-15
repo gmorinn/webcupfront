@@ -50,7 +50,7 @@ const Forfaits: FC = () => {
         <div className="min-h-screen w-full overflow-auto bg-gradient-to-r from-zinc-900 via-slate-900 to-zinc-900">
             <span className="grid" />
             <h1 className="text-white flex items-center justify-center text-3xl my-12 italic">
-                Sauvegarder vos capsules !
+                Sauvegardez vos capsules !
             </h1>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-11/12 mx-auto">
                 <div className="flex flex-col my-5">
