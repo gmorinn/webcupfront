@@ -55,7 +55,7 @@ const Settings: FC = () => {
             if (res?.success === true && res?.data?.length > 0) {
                 setData(res.data)
                 setTotal(res.count)
-            } else {
+            } else if (res?.success === false) {
                 alert("Une erreur est survenue.")
             }
         })
@@ -63,6 +63,7 @@ const Settings: FC = () => {
 
     useEffect(() => {
       getDataByUserId()
+      return () => setData(null)
       // eslint-disable-next-line
   }, [rowsPerPage, page])
   

@@ -12,6 +12,10 @@ const CardForfait: FC<Props> = ({ forfait, is_populaire }) => {
     return (
         <div className="relative flex flex-col flex-wrap items-center p-8 bg-opacity-75 border border-blue-700">
             {is_populaire && <span className="absolute px-3 py-1 text-xs font-medium text-white bg-opacity-25 rounded-full bg-gradient-to-r from-blue-700 to-red-400 -top-3">Plus populaire</span>}
+            <p className="pb-5 text-white font-medium text-xl italic text-center w-1/2 my-2">Sauvegardez vos données pour <span className="text-blue-700 text-2xl">seulement...</span></p>
+            <h3 className="text-3xl font-medium text-white mb-5">9.99€
+                <small className="pl-0 text-base align-baseline opacity-80">/mois</small>
+            </h3>
             <ul className="w-full text-lg text-indigo-200 text-opacity-70 text-left">
                 <li className="flex items-center py-2">
                     <div className="flex items-center justify-center w-6 h-6 mr-3 rounded-full">

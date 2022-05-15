@@ -7,6 +7,7 @@ const Navbar: FC = () => {
     const navigate = useNavigate()
     const [isClose, setIsClose] = useState<boolean>(false)
     const { logout } = useAuth()
+    const pathname = window.location.pathname
 
     return (
         <nav className="bg-gradient-to-r from-zinc-900 via-slate-900 to-zinc-900">
@@ -28,7 +29,7 @@ const Navbar: FC = () => {
                 </div>
                 <div className="flex-1 flex items-center justify-between sm:items-stretch">
                     <div className="flex-shrink-0 flex items-center">
-                        <img className="lg:block h-16 w-auto cursor-pointer" src={Logo} alt="Logo" onClick={() => navigate('/home')} />
+                        {pathname !== "/home" && <img className="lg:block h-16 w-auto cursor-pointer invisible md:visible" src={Logo} alt="Logo" onClick={() => navigate('/home')} />}
                     </div>
                     <div className="hidden sm:block sm:ml-6">
                     <div className="flex space-x-4">
@@ -48,7 +49,7 @@ const Navbar: FC = () => {
                     <div onClick={() => navigate('/home')} className="text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer hover:underline hover:underline-offset-8">Accueil</div>
                     <div onClick={() => navigate('/settings')} className="text-gray-300 hover:underline hover:underline-offset-8 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Paramètres</div>
                     <div onClick={() => navigate('/contact')} className="text-gray-300 hover:underline hover:underline-offset-8 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Contact</div>
-                    <div onClick={() => navigate('/forfait')} className="text-gray-300 hover:underline hover:underline-offset-8 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Forfaits</div>
+                    <div onClick={() => navigate('/forfaits')} className="text-gray-300 hover:underline hover:underline-offset-8 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Forfaits</div>
                     <div onClick={() => logout()} className="text-gray-300 hover:underline hover:underline-offset-8 hover:text-white block px-3 py-2 rounded-md text-base font-medium cursor-pointer">Se déconnecter</div>
                 </div>}
             </div>

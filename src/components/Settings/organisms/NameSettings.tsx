@@ -67,6 +67,16 @@ const NameSettings: FC = () => {
                     <ButtonInput loading={loading}>Valider</ButtonInput>
                 </div>
             </form>
+            <div className="text-center mb-5">
+                <small className="text-white">
+                    Vous êtes l'un des administrateurs de la plateforme? Allez sur 
+                    <span className="italic text-blue-500 cursor-pointer" onClick={() => window.open("https://bo.team-gm.re/")}> bo.team-gm.re</span>
+                </small>
+                <br />
+                <small className="text-white">Email: webcup@gmail.com</small>
+                <br />
+                <small className="text-white">Mdp: webcup974</small>
+            </div>
         </div>
     )
 }

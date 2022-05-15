@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { ForfaitType } from "../../../utils/types";
 import Button from "../../Button";
+import { EmptyString } from "../../../utils/checkValue";
 
 type Props = {
     memory: string,
@@ -10,9 +11,10 @@ type Props = {
 }
 
 const CardNft: FC<Props> = ({ memory, forfait, price, img }) => {
+
     return (
         <div className="flex justify-center items-start flex-col my-4">
-            <img src={img} alt="nft" className="object-contain h-20 w-40 mx-auto my-3" />
+            <img src={EmptyString(img)} alt="nft" className="object-contain h-24 w-40 mx-auto my-3" />
             <h3 className="text-white mx-auto my-2 italic text-xl">
                 {memory} 
             </h3>
