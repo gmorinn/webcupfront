@@ -47,7 +47,7 @@ const Profile: FC = () => {
     useUpdateEffect(() => {
         Fetch(`/web/data/user/${user?.id}/${page*rowsPerPage}/${rowsPerPage}`)
         .then((res:any) => {
-            if (res?.success && res?.data) {
+            if (res?.success === true) {
                 setData(res.data)
                 setTotal(res.count)
                 setLoad(false)
