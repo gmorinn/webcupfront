@@ -22,13 +22,6 @@ const ModeAuthentification: FC<Props> = ({ setMethod }) => {
                 S'inscrire
             </Button>
         </div>
-        <div className="text-white text-center mt-4">
-            <small>Inscrivez vous ou connectez vous avec</small>
-            <br />
-            <small>webcup@gmail.com</small>
-            <br />
-            <small>webcup974</small>
-        </div>
         </>
     )
 }
